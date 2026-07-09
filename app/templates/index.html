@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - SRT Monitor{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>SRT Status</h3>
+            <p id="srt-status">Loading...</p>
+        </div>
+        <div class="stat-card">
+            <h3>Throughput</h3>
+            <p id="throughput">0 Mbps</p>
+        </div>
+        <div class="stat-card">
+            <h3>Packet Loss</h3>
+            <p id="packet-loss">0%</p>
+        </div>
+        <div class="stat-card">
+            <h3>CPU Usage</h3>
+            <p id="cpu-usage">0%</p>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="throughputChart"></canvas>
+    </div>
+
+    <div class="controls">
+        <button id="clear-stats">Clear Statistics</button>
+        <button id="save-stats">Save Statistics</button>
+    </div>
+</div>
+{% endblock %}
