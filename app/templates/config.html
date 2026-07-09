@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Configuration - SRT Monitor{% endblock %}
+
+{% block content %}
+<div class="config-page">
+    <h2>SRT Configuration</h2>
+
+    <form id="srt-config-form">
+        <div class="config-section">
+            <h3>SRT Mode</h3>
+            <label>
+                <input type="radio" name="srt_mode" value="listener" checked> Listener Mode
+            </label>
+            <label>
+                <input type="radio" name="srt_mode" value="caller"> Caller Mode
+            </label>
+        </div>
+
+        <div class="config-section">
+            <h3>Listener Settings</h3>
+            <label>Port: <input type="number" name="listener_port" value="1234" min="1024" max="65535"></label>
+            <label>Latency (ms): <input type="number" name="latency_ms" value="100" min="10" max="5000"></label>
+            <label>Payload Size: <input type="number" name="payload_size" value="1316" min="100" max="1500"></label>
+            <label>Max Bandwidth (Mbps): <input type="number" name="max_bandwidth" value="1000" min="1" max="10000"></label>
+        </div>
+
+        <div class="config-section">
+            <h3>Caller Settings</h3>
+            <label>Remote Address: <input type="text" name="remote_address" placeholder="192.168.1.100"></label>
+            <label>Remote Port: <input type="number" name="remote_port" value="1234" min="1024" max="65535"></label>
+            <label>Local Port: <input type="number" name="caller_port" value="1235" min="1024" max="65535"></label>
+        </div>
+
+        <button type="submit">Apply Configuration</button>
+    </form>
+
+    <div class="status-output">
+        <h3>Status</h3>
+        <pre id="srt-status-output">Waiting for configuration...</pre>
+    </div>
+</div>
+{% endblock %}
